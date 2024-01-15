@@ -55,6 +55,12 @@ dependencies {
     implementation 'org.springframework.cloud:spring-cloud-starter-aws:2.2.6.RELEASE'
     implementation "com.amazonaws:aws-java-sdk-s3"
 
+    //java Faker
+    implementation 'com.github.javafaker:javafaker:1.0.2'
+
+    //Redis
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+
     implementation 'org.springframework.boot:spring-boot-starter-web'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'

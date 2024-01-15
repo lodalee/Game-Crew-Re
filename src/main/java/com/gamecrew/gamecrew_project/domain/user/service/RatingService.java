@@ -121,4 +121,16 @@ public class RatingService {
                 userRatingResultDtoList
         );
     }
+
+//    @Scheduled(fixedRate = 3600000) // 1시간마다 실행
+    public void populateTotalRatingWithRecordOfRatings() {
+        List<RecordOfRatings> allRatings = recordOfRatingsRepository.findAll();
+
+        for (RecordOfRatings rating : allRatings) {
+            UserRatingRequestDto requestDto = new UserRatingRequestDto(rating.getManner(), rating.getParticipation(), rating.getGamingSkill(), rating.getEnjoyable(), rating.getSociability());
+            User evaluator = userRepository.findById(rating.getEvaluator()).orElseThrow(() -> new IllegalArgumentException("Evaluator Not Found")); // 평가자 정보를 가져옵니다.
+            Long evaluated_user = rating.getUserId();
+            registrationOfRatings(requestDto, evaluator, evaluated_user);
+        }
+    }
 }
