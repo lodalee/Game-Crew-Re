@@ -4,6 +4,7 @@ package com.gamecrew.gamecrew_project.domain.user.entity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -12,6 +13,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 public class Auth {
     @Id
     @Column(unique = true, nullable = false)
@@ -19,10 +21,5 @@ public class Auth {
 
     @Column(nullable = false)
     private String code;
-
-    public Auth(String email, String authCode) {
-        this.email = email;
-        this.code = authCode;
-    }
 }
 
