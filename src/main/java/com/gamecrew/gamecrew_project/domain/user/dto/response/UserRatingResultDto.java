@@ -2,8 +2,10 @@ package com.gamecrew.gamecrew_project.domain.user.dto.response;
 
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Getter
+@NoArgsConstructor
 public class UserRatingResultDto {
     private Long evaluator; //평가를 한 사람
     private int manner;

@@ -1,13 +1,13 @@
 package com.gamecrew.gamecrew_project.domain.user.dto.response;
 
 import com.gamecrew.gamecrew_project.global.response.CustomPageable;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
 
 @Getter
 @Setter
+@NoArgsConstructor
 public class UserRatingsResponseDto {
     private String msg;
     private CustomPageable pageable;

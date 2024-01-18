@@ -11,7 +11,6 @@ import com.gamecrew.gamecrew_project.global.response.MessageResponseDto;
 import com.gamecrew.gamecrew_project.global.response.constant.Message;
 import com.gamecrew.gamecrew_project.global.security.UserDetailsImpl;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.redis.core.RedisHash;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -40,10 +39,6 @@ public class RatingController {
     }
 
     //유저의 평가들을 가져오는 API
-    // key  = evaluatedUser
-    // value = userRatingResponseDto
-    // 캐시에 있으면 그대로 보여주기
-    // 없으면 기존 로직대로
     @GetMapping("/rating/{evaluated_user}")
     public UserRatingsResponseDto getUserRatings(
             @PathVariable Long evaluated_user,
